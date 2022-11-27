@@ -1,31 +1,27 @@
 package kodlama.io.rentACar.entities.concretes;
 
-public class Brand {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@Entity
+@Table(name = "brands") //veritabanındaki tablonun adı
+public class Brand {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //id yi otomatik arttırır
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name") //veritabanındaki name kolonuyla tanımlanan namei eşler
     private String name;
 
+
     public Brand() {
-    }
 
-    public Brand(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
